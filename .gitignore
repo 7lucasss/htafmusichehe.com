@@ -1,0 +1,55 @@
+# Node dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Production builds
+client/build/
+client/dist/
+server/dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files
+.env
+.env.*
+server/.env
+client/.env
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.iml
+
+# Cache
+.cache/
+client/.cache/
+server/.cache/
+
+# Coverage
+coverage/
+
+# Next/Parcel
+.next/
+out/
+
+# Local sample media
+file_example_MP3_1MG.mp3
+
+# lockfiles
+package-lock.json
+server/package-lock.json
+client/package-lock.json
+
+# Misc
+*.local

@@ -1,0 +1,468 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0f0f1a;
+}
+
+.main-content {
+  flex: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive containers */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+} 
+
+@keyframes soundwave {
+  0% {
+    height: 2px;
+  }
+  100% {
+    height: 8px;
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Hiệu ứng nút */
+.btn-pulse {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(78, 204, 163, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(78, 204, 163, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(78, 204, 163, 0);
+  }
+}
+
+/* Hiệu ứng cho nút đăng nhập */
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 204, 163, 0.5);
+}
+
+/* Header styles */
+.sticky-header {
+  position: sticky;
+  top: 2.5rem;
+  z-index: 40;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sticky-header.scrolled {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgba(26, 26, 46, 0.95);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Button animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Search bar styles */
+.search-input {
+  background-color: rgba(15, 15, 26, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  background-color: rgba(15, 15, 26, 0.8);
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 2px rgba(78, 204, 163, 0.25);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Search suggestion panel */
+.search-suggestions {
+  background-color: #0f0f1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.search-suggestion-item {
+  padding: 0.75rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.search-suggestion-item:hover {
+  background-color: rgba(78, 204, 163, 0.1);
+}
+
+.search-suggestion-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Cart button */
+.cart-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f0f1a;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.cart-button:hover {
+  transform: scale(1.1);
+  background-color: var(--secondary);
+  box-shadow: 0 0 10px rgba(78, 204, 163, 0.5);
+}
+
+.cart-button:hover .cart-icon {
+  color: var(--primary) !important;
+}
+
+.cart-button:active {
+  transform: scale(0.95);
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #e53e3e;
+  color: white;
+  font-size: 0.7rem;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation when adding item to cart */
+@keyframes cartPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(229, 62, 62, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(229, 62, 62, 0);
+  }
+}
+
+.cart-pulse {
+  animation: cartPulse 1s;
+}
+
+/* Các hiệu ứng nút mới */
+
+/* Hiệu ứng ripple khi click */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: "";
+  background: rgba(255, 255, 255, 0.3);
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+  opacity: 0;
+  transition: all 0.8s;
+  transform: scale(0);
+}
+
+.btn-ripple:active::after {
+  transform: scale(3);
+  opacity: 0;
+  transition: 0s;
+}
+
+/* Hiệu ứng nổi (floating) */
+.btn-float {
+  transition: transform 0.3s ease;
+}
+
+.btn-float:hover {
+  transform: translateY(-5px);
+}
+
+/* Hiệu ứng glow cho nút primary */
+.btn-glow {
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 15px rgba(78, 204, 163, 0.6);
+}
+
+/* Hiệu ứng phóng to */
+.btn-scale {
+  transition: transform 0.2s ease;
+}
+
+.btn-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Hiệu ứng nút sáng lên khi hover */
+.btn-highlight:hover {
+  filter: brightness(1.1);
+}
+
+/* Hiệu ứng nút nền trong suốt thành đặc */
+.btn-fill {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.btn-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--secondary);
+  z-index: -1;
+  transition: width 0.3s ease;
+}
+
+.btn-fill:hover {
+  color: var(--primary);
+}
+
+.btn-fill:hover::before {
+  width: 100%;
+}
+
+/* Hiệu ứng nút đổi màu border */
+.btn-border-shift {
+  border: 2px solid var(--secondary);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-border-shift:hover {
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+/* Hiệu ứng nút spinner khi loading */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.btn-spinner.loading .btn-icon {
+  animation: spin 1s linear infinite;
+}
+
+/* Hiệu ứng shining cho nút */
+@keyframes shine {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shine 3s infinite linear;
+}
+
+/* Styles cho trang tin tức */
+.prose {
+  color: #e5e7eb;
+}
+
+.prose h2 {
+  color: white;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose strong {
+  color: white;
+  font-weight: 600;
+}
+
+.prose blockquote {
+  border-left: 4px solid #4ecca3;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #9ca3af;
+}
+
+.news-card-transition {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card-transition:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation cho cards */
+.news-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Thêm vào đầu file */
+.app-banner {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(90deg, #4ecca3 0%, #45b592 100%);
+  transition: all 0.3s ease;
+}
+
+.app-banner:hover {
+  background: linear-gradient(90deg, #45b592 0%, #4ecca3 100%);
+}
+
+/* Các styles khác giữ nguyên */ 
+
+/* Styles for AudioPlayer slider thumb */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #4ecca3;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #4ecca3;
+  cursor: pointer;
+  border: none;
+} 
