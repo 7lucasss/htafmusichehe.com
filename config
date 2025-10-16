@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[gui]
+	wmstate = zoomed
+	geometry = 893x236+688+313 175 196
+[user]
+	name = Git User
+	email = gituser@example.com
+[remote "origin"]
+	url = https://github.com/7lucasss/htafmusichehe.com
+	fetch = +refs/heads/*:refs/remotes/origin/*
